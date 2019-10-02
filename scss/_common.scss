@@ -133,6 +133,90 @@ video {
   overflow: hidden;
 }
 
+.js-span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 150px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.6);
+  color: blue;
+  font-size: 25px;
+}
+
+.form__select-wrapper {
+  background: #fff;
+  width: 35%;
+  margin-left: auto;
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid #bababa;
+  border: none;
+
+  @include tablet {
+    width: 100%;
+  }
+}
+
+.form__arrow {
+  display: block;
+  width: 45px;
+  height: 100%;
+  background: transparent;
+  position: absolute;
+  right: 0;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 3px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #3a3a3a;
+  }
+}
+
+.form__element--select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  background: #ffffff;
+  white-space: nowrap;
+  text-indent: 0.01px;
+  background: transparent;
+  text-overflow: '';
+  position: relative;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+
+  option {
+    background: #ffffff;
+  }
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.form__element--select::-ms-expand {
+  display: none;
+}
+
+
 body {
   min-width: 320px;
   width: 100%;

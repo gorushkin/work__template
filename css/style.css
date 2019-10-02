@@ -460,12 +460,6 @@ video {
   border: none;
 }
 
-@media (max-width: 991px) {
-  .form__select-wrapper {
-    width: 100%;
-  }
-}
-
 .form__arrow {
   display: block;
   width: 45px;

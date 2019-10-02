@@ -1,38 +1,38 @@
-@mixin desktop-full {
-  @media (min-width: 1600px) {
-    @content;
-  }
-}
+// @mixin desktop-full {
+//   @media (min-width: 1600px) {
+//     @content;
+//   }
+// }
 
-@mixin desktop {
-  @media (max-width: 1600px) {
-    @content;
-  }
-}
+// @mixin desktop {
+//   @media (max-width: 1600px) {
+//     @content;
+//   }
+// }
 
-@mixin laptop {
-  @media (max-width: 1199px) {
-    @content;
-  }
-}
+// @mixin laptop {
+//   @media (max-width: 1199px) {
+//     @content;
+//   }
+// }
 
-@mixin tablet {
-  @media (max-width: 991px) {
-    @content;
-  }
-}
+// @mixin tablet {
+//   @media (max-width: 991px) {
+//     @content;
+//   }
+// }
 
-@mixin wide-mobile {
-  @media (max-width: 767px) {
-    @content;
-  }
-}
+// @mixin wide-mobile {
+//   @media (max-width: 767px) {
+//     @content;
+//   }
+// }
 
-@mixin mobile {
-  @media (max-width: 479px) {
-    @content;
-  }
-}
+// @mixin mobile {
+//   @media (max-width: 479px) {
+//     @content;
+//   }
+// }
 
 @font-face {
   font-family: 'Lemon/Milk Regular';
@@ -153,10 +153,6 @@ video {
   border-radius: 5px;
   border: 1px solid #bababa;
   border: none;
-
-  @include tablet {
-    width: 100%;
-  }
 }
 
 .form__arrow {

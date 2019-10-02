@@ -1,9 +1,10 @@
 const breakpointsList = [
-  {name: 'mobile', min: 0, max: 575},
-  {name: 'wide-mobile', min: 576, max: 767},
+  {name: 'mobile', min: 0, max: 479},
+  {name: 'wide-mobile', min: 480, max: 767},
   {name: 'tablet', min: 768, max: 991},
   {name: 'laptop', min: 992, max: 1199},
-  {name: 'desktop-full', min: 1200, max: 2000},
+  {name: 'desktop', min: 1200, max: 1599},
+  {name: 'desktop-full', min: 1600, max: 25000},
 ]
 
 const showData = (name) => {

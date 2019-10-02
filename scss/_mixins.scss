@@ -1,11 +1,11 @@
 @mixin desktop-full {
-  @media (min-width: $desktop-full) {
+  @media (max-width: $desktop-full) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (max-width: $desktop-full) {
+  @media (max-width: $desktop-full - 1) {
     @content;
   }
 }
@@ -22,12 +22,6 @@
   }
 }
 
-@mixin tablet-desktop {
-  @media (min-width: $laptop-width) {
-    @content;
-  }
-}
-
 @mixin mobile-wide {
   @media (max-width: $tablet-width - 1px) {
     @content;
@@ -35,7 +29,7 @@
 }
 
 @mixin mobile {
-  @media (max-width: $mobile-width) {
+  @media (max-width: $mobile-width - 1px) {
     @content;
   }
 }

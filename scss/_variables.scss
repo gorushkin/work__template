@@ -1,54 +1,85 @@
     
-$mobile-width: 480px;
-$tablet-width: 768px;
-$laptop-width: 992px;
+$mobile-width:  480px;
+$tablet-width:  768px;
+$laptop-width:  992px;
 $desktop-width: 1200px;
-$desktop-full: 1600px;
-$desktop-wide: 1920px;
+$desktop-full:  1600px;
+$desktop-wide:  1920px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $mobile-width-only: 767px;
 $retina-dpi: 144dpi;
 $retina-dppx: 1.5dppx;
 
 // Шрифты
-$font-muller: "Muller", "Arial", sans-serif;
-$font-roboto: "Roboto", "Arial", sans-serif;
+// $font-muller: "Muller", "Arial", sans-serif;
+// $font-roboto: "Roboto", "Arial", sans-serif;
 
 // Цвета
-$color-black: #232323;
-$color-white: #ffffff;
-$color-gray: #828282;
-$color-gray-light: #d7d7d7;
-$color-blue-dark: #0b2248;
-$color-blue: #0089d0;
-$color-blue-bg: #5589a7;
-$color-blue-sky: #7eccf5;
-$color-blue-grey: #cedfe1;
-$color-blue-skytext-choice: #92daff;
-$color-blue-light: #24c9ff;
-$color-blue-light-bg: #dff1f3;
-$color-blue-arrow: #94b0b3;
-$color-ice-blue: #dff1f3;
-$color-orange: #f7a22e;
-$color-bright-orange: #ffa719;
-$color-orange-lite: #fad29b;
-$color-blue-sorting: #85a5a8;
-$color-blue-line: #c2dcdf;
-$color-gray-line: #aacace;
-$color-red: #ff3333;
-$color-green: #36bf80;
-$color-green-bright: #329e49;
-$color-blue-dark: #0b2248;
-$color-gray-dark: #a7a7a7;
-$color-blue-vkontakte: #5186bd;
-$color-blue-facebook: #3b5998;
-$color-blue-telegram: #0088cc;
-$color-blue-twitter: #1da1f2;
-$color-blue-header: #1B2748;
-$color-light-gray-text: #768486;
-$color-light-gray-line: #c7deea;
-$color-blue-gray-table: #1095da;
-$color-blue-gray-mobile: #c8dee0;
-$color-gray-button-bg: #eef1f5;
-$color-gray-button-txt: #5a6779;
+// $color-black: #232323;
+// $color-white: #ffffff;
+// $color-gray: #828282;
+// $color-gray-light: #d7d7d7;
+// $color-blue-dark: #0b2248;
+// $color-blue: #0089d0;
+// $color-blue-bg: #5589a7;
+// $color-blue-sky: #7eccf5;
+// $color-blue-grey: #cedfe1;
+// $color-blue-skytext-choice: #92daff;
+// $color-blue-light: #24c9ff;
+// $color-blue-light-bg: #dff1f3;
+// $color-blue-arrow: #94b0b3;
+// $color-ice-blue: #dff1f3;
+// $color-orange: #f7a22e;
+// $color-bright-orange: #ffa719;
+// $color-orange-lite: #fad29b;
+// $color-blue-sorting: #85a5a8;
+// $color-blue-line: #c2dcdf;
+// $color-gray-line: #aacace;
+// $color-red: #ff3333;
+// $color-green: #36bf80;
+// $color-green-bright: #329e49;
+// $color-blue-dark: #0b2248;
+// $color-gray-dark: #a7a7a7;
+// $color-blue-vkontakte: #5186bd;
+// $color-blue-facebook: #3b5998;
+// $color-blue-telegram: #0088cc;
+// $color-blue-twitter: #1da1f2;
+// $color-blue-header: #1B2748;
+// $color-light-gray-text: #768486;
+// $color-light-gray-line: #c7deea;
+// $color-blue-gray-table: #1095da;
+// $color-blue-gray-mobile: #c8dee0;
+// $color-gray-button-bg: #eef1f5;
+// $color-gray-button-txt: #5a6779;
 
-$organization-desktop-margin: 15px;//20px;
+// $organization-desktop-margin: 15px;//20px;

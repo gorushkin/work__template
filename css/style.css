@@ -421,6 +421,15 @@ video {
 /* select::-ms-expand {
   display: none;
 } */
+.table {
+  display: table;
+}
+
+.table-cell {
+  vertical-align: middle;
+  display: table-cell;
+}
+
 .clearfix:after {
   content: '';
   display: block;
@@ -516,17 +525,32 @@ body {
   margin: 0 auto;
 }
 
-.js-span {
+.js_window {
   position: absolute;
   top: 0;
   right: 0;
-  display: block;
-  width: 200px;
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  vertical-align: middle;
   outline: 2px solid red;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.js_span {
+  display: block;
   padding: 25px;
   text-align: center;
   background: rgba(255, 255, 255, 0.6);
   color: blue;
   font-size: 25px;
-  margin: 25px;
+  padding: 25px;
+  outline: 2px solid green;
+}
+
+.js_hide {
+  display: none;
 }

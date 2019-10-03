@@ -1,14 +1,27 @@
-.js-span {
+.js_window {
   position: absolute;
   top: 0;
   right: 0;
-  display: block;
-  width: 200px;
+  width: 250px;
+  display: flex;
+  vertical-align: middle;
   outline: 2px solid red;
+  justify-content: center;
+}
+
+
+.js_span {
+  display: block;
   padding: 25px;
   text-align: center;
   background: rgba(255, 255, 255, 0.6);
   color: blue;
   font-size: 25px;
-  margin: 25px;
+  padding: 25px;
+  outline: 2px solid green;
+}
+
+
+.js_hide {
+  display: none;
 }

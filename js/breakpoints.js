@@ -9,7 +9,7 @@ const breakpointsList = [
 
 const showData = (name) => {
   const element = document.querySelector('.js-span');
-  element.innerHTML = name;
+  element.textContent = name;
 }
 
 const windowSizeHandler = () => {
@@ -25,12 +25,17 @@ const findName = (array) => {
 };
 
 const createSpan = (name) => {
-  const block = document.createDocumentFragment();
+  const fragment = document.createDocumentFragment();
+  const block = document.createElement('div');
   const span = document.createElement('span');
-  span.classList.add('js-span');
-  span.innerHTML = name;
+  block.classList.add('js_window');
+  span.classList.add('js_span');
+  span.textContent = name;
+  block.innerHTML = '<p></p>';
   block.appendChild(span);
-  document.body.appendChild(block);
+  fragment.appendChild(block);
+  document.body.appendChild(fragment);
+  console.log(span);
 }
 
 const screenName = findName(breakpointsList);

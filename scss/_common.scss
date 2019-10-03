@@ -116,6 +116,17 @@ video {
   display: none;
 } */
 
+.table {
+  display: table;
+  // width: 100%;
+}
+
+.table-cell {
+  vertical-align: middle;
+  display: table-cell;
+  // height: 130px;
+}
+
 .clearfix:after {
   content: '';
   display: block;

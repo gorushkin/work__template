@@ -1,4 +1,4 @@
-(function() {
+// (function() {
   const breakpointsList = [
   {name: 'mobile', min: 0, max: 479},
   {name: 'wide-mobile', min: 480, max: 767},
@@ -12,6 +12,16 @@ const html = '<div class="row row--top"></div><div class="row row--mid"><span cl
 const htmlClassList = [
   'js_min', 'js_max', 'js_name',
 ]
+
+
+const createVarList = (list) => {
+  return list.map(n => {
+    let q = {};
+    q.class = n;
+    q.var = document.querySelector('.' + n);
+  return q;
+  });
+};
 
 const showData = (name) => {
   const element = document.querySelector('.js_name');
@@ -40,6 +50,8 @@ const createSpan = (name) => {
   document.body.appendChild(fragment);
   const span = document.querySelector('.js_name');
   span.textContent = name;
+  const myList = createVarList(htmlClassList);
+  // console.log(myList);
   // console.log(block);
 }
 
@@ -50,4 +62,4 @@ showData(screenName);
 
 window.addEventListener('resize', windowSizeHandler);
 
-})();
+// })();

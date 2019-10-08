@@ -527,30 +527,74 @@ body {
 
 .js_window {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 100px;
+  right: 30px;
   width: 250px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   vertical-align: middle;
-  outline: 2px solid red;
+  background: green;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.js_span {
-  display: block;
-  padding: 25px;
-  text-align: center;
+.js_window .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.js_window .row--bot {
+  height: 30px;
+  border: 1px solid red;
+}
+
+.js_window .value {
+  width: 25%;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+}
+
+.js_window .name {
   background: rgba(255, 255, 255, 0.6);
   color: blue;
   font-size: 25px;
-  padding: 25px;
-  outline: 2px solid green;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  line-height: 35px;
 }
 
-.js_hide {
+.js_window .conrol {
+  width: 25%;
+  height: 100%;
+  border-right: 1px solid red;
+}
+
+.js_window .js_hide {
   display: none;
+}
+
+.js_window .center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }

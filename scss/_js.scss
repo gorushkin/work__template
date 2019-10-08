@@ -1,27 +1,63 @@
 .js_window {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 100px;
+  right: 30px;
   width: 250px;
   display: flex;
   vertical-align: middle;
-  outline: 2px solid red;
+  background: green;
   justify-content: center;
-}
+  display: flex;
+  flex-direction: column;
+
+  .row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    &--bot {
+      height: 30px;
+      border: 1px solid red;
+    }
+  }
+
+  .value {
+    width: 25%;
+    flex-grow: 0;
+  }
+
+  .name {
+    background: rgba(255, 255, 255, 0.6);
+    color: blue;
+    font-size: 25px;
+    flex-grow: 1;
+    line-height: 35px;
+  }
+
+  .conrol {
+    width: 25%;
+    height: 100%;
+    border-right: 1px solid red;
+  }
 
 
-.js_span {
-  display: block;
-  padding: 25px;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.6);
-  color: blue;
-  font-size: 25px;
-  padding: 25px;
-  outline: 2px solid green;
-}
 
 
-.js_hide {
-  display: none;
+
+  .js_hide {
+    display: none;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+
+
+
+
 }

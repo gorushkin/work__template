@@ -1,4 +1,4 @@
-// (function() {
+(function() {
   const breakpointsList = [
   {name: 'mobile', min: 0, max: 479},
   {name: 'wide-mobile', min: 480, max: 767},
@@ -13,7 +13,7 @@ const htmlClassList = [
   'js_min', 'js_max', 'js_name', 'js_menu',
 ]
 
-// let varList;
+let varList;
 
 const createVarList = (list) => {
   let result = {};
@@ -49,7 +49,6 @@ const createSpan = () => {
   document.body.appendChild(fragment);
   varList = createVarList(htmlClassList);
   const screenName = findName(breakpointsList);
-  varList.js_name.textContent = name;
   showData(screenName);
 }
 
@@ -58,4 +57,4 @@ createSpan();
 
 window.addEventListener('resize', windowSizeHandler);
 
-// })();
+})();

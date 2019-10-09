@@ -9,11 +9,13 @@
 ]
 
 const html = '<div class="row row--top"></div><div class="row row--mid"><span class="js_min value value--min center ">320px</span><span class="js_name name center">Desktop</span><span class="js_max value value--max center ">479px</span></div><div class="row row--bot"><div class="conrol center">0</div><div class="conrol center">50</div><div class="conrol center">100</div><div class="conrol center"></div></div>';
-const htmlClassList = [
-  'js_min', 'js_max', 'js_name', 'js_menu',
-]
 
-let varList;
+const htmlClassList = [
+  'js_min', 
+  'js_max', 
+  'js_name', 
+  'js_menu',
+]
 
 const createVarList = (list) => {
   let result = {};
@@ -23,19 +25,19 @@ const createVarList = (list) => {
   return result;
 };
 
-const showData = (name) => {
-  varList.js_name.textContent = name;
+const showData = () => {
+  const screenName = findName(breakpointsList);
+  const varList = createVarList(htmlClassList);
+  varList.js_name.textContent = screenName;
 }
 
 const windowSizeHandler = () => {
-  const screenWidth = document.documentElement.clientWidth;
-  const screenName = findName(breakpointsList, screenWidth);
-  showData(screenName);
+  showData();
 }
 
 const findName = (array) => {
   const size = document.documentElement.clientWidth
-  const name = array.filter(n => n.min <= size && n.max > size)[0].name;
+  const name = array.filter(n => n.min <= size && n.max >= size)[0].name;
   console.log(name);
   return name;
 };
@@ -47,14 +49,11 @@ const createSpan = () => {
   block.innerHTML = html;
   fragment.appendChild(block);
   document.body.appendChild(fragment);
-  varList = createVarList(htmlClassList);
-  const screenName = findName(breakpointsList);
-  showData(screenName);
+  showData();
 }
 
 
 createSpan();
-
 window.addEventListener('resize', windowSizeHandler);
 
 })();

@@ -16,21 +16,25 @@ const createVarList = (list) => {
   return result;
 };
 
-const html = '<div class="row row--top"></div><div class="row row--mid"><span class="js_min value value--min center ">320px</span><span class="js_name name center">Desktop</span><span class="js_max value value--max center ">479px</span></div><div class="row row--bot"><div class="conrol center">0</div><div class="conrol center">50</div><div class="conrol center">100</div><div class="conrol center"></div></div>';
+const html = '<div class="row row--top"><span class="left"></span><span class="js_dim mid"></span><span class="right"></span></div><div class="row row--mid"><span class="js_min value value--min">320px</span><span class="js_name name">Desktop</span><span class="js_max value value--max">479px</span></div><div class="row row--bot"><span class="conrol">0</span><span class="conrol">50</span><span class="conrol">100</span><span class="conrol"></span></div>';
 
 const htmlClassList = [
   'js_min', 
   'js_max', 
   'js_name', 
   'js_menu',
+  'js_dim',
 ]
 
 let varList;
 
 const showData = () => {
-  const screenName = findName(breakpointsList);
+  const {name: screenName, min: minRes, max: maxRes, screenWidth} = findName(breakpointsList);
+  // console.log(screenWidth);
   varList.js_name.textContent = screenName;
-  varList.js_min.textContent = 
+  varList.js_min.textContent = minRes;
+  varList.js_max.textContent = maxRes;
+  varList.js_dim.textContent = screenWidth;
 }
 
 // const windowSizeHandler = () => {
@@ -39,9 +43,8 @@ const showData = () => {
 
 const findName = (array) => {
   const size = document.documentElement.clientWidth
-  const name = array.filter(n => n.min <= size && n.max >= size)[0].name;
-  console.log(name);
-  return name;
+  const name = array.filter(n => n.min <= size && n.max >= size)[0];
+  return {...name, screenWidth: size};
 };
 
 const createSpan = () => {

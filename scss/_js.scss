@@ -1,5 +1,5 @@
 .js_window {
-  position: absolute;
+  position: fixed;
   top: 100px;
   right: 30px;
   width: 250px;
@@ -9,20 +9,28 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
+  font-family: 'Roboto', sans-serif;
 
   .row {
     display: flex;
     align-items: center;
     width: 100%;
+    line-height: 2rem;
 
     &--bot {
       height: 30px;
       border: 1px solid red;
     }
+
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   .value {
-    width: 25%;
+    width: 20%;
     flex-grow: 0;
   }
 
@@ -44,16 +52,13 @@
     display: none;
   }
 
-  .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .left,
+  .right {
+    width: 25%;
   }
 
-
-
-
-
-
+  .mid {
+    width: 50%;
+  }
 
 }

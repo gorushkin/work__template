@@ -37,6 +37,8 @@ const showData = () => {
   varList.js_dim.textContent = screenWidth;
 }
 
+
+// TODO: remove this 
 // const windowSizeHandler = () => {
 //   showData();
 // }
@@ -51,6 +53,7 @@ const createSpan = () => {
   const fragment = document.createDocumentFragment();
   const block = document.createElement('div');
   block.classList.add('js_window');
+  // block.classList.add('js_window--min');
   block.innerHTML = html;
   fragment.appendChild(block);
   document.body.appendChild(fragment);

@@ -58,7 +58,24 @@
   }
 
   .mid {
-    width: 50%;
+    // width: 50%;
+    flex-grow: 1;
   }
 
+  &--min {
+    width: 150px;
+
+    .left,
+    .right {
+      display: none;
+    }
+
+    .value {
+      display: none;
+    }
+
+    .row--bot {
+      display: none;
+    }
+  }
 }

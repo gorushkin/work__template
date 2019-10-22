@@ -1,50 +1,16 @@
-// @mixin desktop-full {
-//   @media (min-width: 1600px) {
-//     @content;
-//   }
+// @font-face {
+//   font-family: 'Lemon/Milk Regular';
+//   font-style: normal;
+//   font-weight: normal;
+//   src: local("Lemon/Milk Regular"), url("../fonts/LemonMilk.woff") format("woff"), url("../fonts/LemonMilk.woff2") format("woff2");
 // }
-
-// @mixin desktop {
-//   @media (max-width: 1600px) {
-//     @content;
-//   }
-// }
-
-// @mixin laptop {
-//   @media (max-width: 1199px) {
-//     @content;
-//   }
-// }
-
-// @mixin tablet {
-//   @media (max-width: 991px) {
-//     @content;
-//   }
-// }
-
-// @mixin wide-mobile {
-//   @media (max-width: 767px) {
-//     @content;
-//   }
-// }
-
-// @mixin mobile {
-//   @media (max-width: 479px) {
-//     @content;
-//   }
-// }
-
-@font-face {
-  font-family: 'Lemon/Milk Regular';
-  font-style: normal;
-  font-weight: normal;
-  src: local("Lemon/Milk Regular"), url("../fonts/LemonMilk.woff") format("woff"), url("../fonts/LemonMilk.woff2") format("woff2");
-}
-
 
 html {
   box-sizing: border-box;
+  font-size: 16px;
 }
+
+/* Указываем box sizing */
 
 *,
 *::before,
@@ -57,31 +23,39 @@ a {
   color: inherit;
 }
 
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
 body,
 h1,
 h2,
 h3,
 h4,
-h5,
-h6,
-ul,
-ol,
-li,
 p,
-pre,
-blockquote,
+ul[class],
+ol[class],
+li,
 figure,
-hr {
+figcaption,
+blockquote,
+dl,
+dd {
   margin: 0;
-  padding: 0;
 }
 
-ul {
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
+
+/* Наследуем шрифты для инпутов и кнопок */
 input,
 textarea,
 select,
@@ -91,6 +65,7 @@ button {
   letter-spacing: inherit; 
 }
 
+/* Упрощаем работу с изображениями и прочей ерундой*/
 embed,
 iframe,
 img,
@@ -102,29 +77,6 @@ video {
 
 [hidden] {
   display: none;
-}
-
-/* select */
-
-/* select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-} */
-
-/* select::-ms-expand {
-  display: none;
-} */
-
-.table {
-  display: table;
-  // width: 100%;
-}
-
-.table-cell {
-  vertical-align: middle;
-  display: table-cell;
-  // height: 130px;
 }
 
 .clearfix:after {
@@ -215,10 +167,15 @@ select::-ms-expand {
 body {
   min-width: 320px;
   width: 100%;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: $font-first;
 }
 
 .wrapper {
-  max-width: 1600px;
+  max-width: $wrapper-width;
   width: 100%;
   margin: 0 auto;
 }

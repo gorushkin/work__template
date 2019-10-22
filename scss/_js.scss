@@ -21,12 +21,12 @@
       height: 30px;
       border: 1px solid red;
     }
+  }
 
-    span {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .value {
@@ -40,16 +40,24 @@
     font-size: 25px;
     flex-grow: 1;
     line-height: 35px;
+    cursor: pointer;
   }
 
   .conrol {
     width: 25%;
     height: 100%;
     border-right: 1px solid red;
+    cursor: pointer;
+
+    &:hover {
+      background: red;
+    }
   }
 
   .js_hide {
-    display: none;
+    // display: none;
+    opacity: 1 !important;
+    background: black;
   }
 
   .left,
@@ -58,7 +66,6 @@
   }
 
   .mid {
-    // width: 50%;
     flex-grow: 1;
   }
 

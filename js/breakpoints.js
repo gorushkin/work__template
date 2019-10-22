@@ -16,7 +16,7 @@
     return result;
   };
 
-  const html = '<div class="row row--top"><span class="left"></span><span class="js_dim mid"></span><span class="right"></span></div><div class="row row--mid"><span class="js_min value value--min">320px</span><span class="js_name name">Desktop</span><span class="js_max value value--max">479px</span></div><div class="row row--bot js_control"><span class="conrol">0</span><span class="conrol">50</span><span class="conrol">100</span><span class="conrol js_hide"><span></span></span></div>';
+  const html = '<div class="row row--top"><span class="left"></span><span class="js_dim mid"></span><span class="right"></span></div><div class="row row--mid"><span class="js_min value value--min">320px</span><span class="js_name name">Desktop</span><span class="js_max value value--max">479px</span></div><div class="row row--bot js_control"><span class="conrol">0</span><span class="conrol">50</span><span class="conrol">100</span><span class="conrol js_hide">100</span></div>';
 
   const htmlClassList = [
     'js_min',
@@ -79,16 +79,15 @@
     varList.js_window.classList.toggle('js_window--min');
   })
 
-  // varList.js_control.addEventListener('click', function(evt) {
-    // const index = evt.target.innerHTML;
-    // varList.js_window.style.opacity = index / 100;
-  // })
+  const onWheel = (e) => {
+    let delta = e.deltaY;
+    if (delta < 0) varList.js_hide.innerHTML = Math.min(100, +varList.js_hide.innerHTML + 10);
+    else varList.js_hide.innerHTML = Math.max(5, +varList.js_hide.innerHTML - 10);
+    let index = varList.js_hide.innerHTML;
+    varList.js_window.style.opacity = index / 100;
+    e.preventDefault();
+  }
 
-  varList.js_window.addEventListener('wheel', function(evt) {
-    // evt.preventDefault();
-    const startindex = 100;
-    let index = evt.deltaY + startindex;
-    console.log('wheeeel' + index );
-  })
-  
+  varList.js_window.addEventListener('wheel', onWheel);
+
 })();

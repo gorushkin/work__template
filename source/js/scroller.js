@@ -13,10 +13,9 @@ for (var i = 0; i < btnList.length; i++ ) {
 function findBtn(i) {
   btnList[i].addEventListener('click', function(e) {
     e.preventDefault();
-    ScrollToResolver(anchor); 
+    ScrollToResolver(anchor);
   });
 }
-
 
 function ScrollToResolver(elem) {
   var anchorPosition = anchor.getBoundingClientRect().top + pageYOffset;

@@ -16,3 +16,16 @@
 # End of https://www.gitignore.io/api/visualstudiocode
 css/*.*
 node_modules
+.DS_Store
+.idea
+.vscode
+*.ai
+*.log
+*.pdf
+*.psd
+*.sublime*
+npm-debug.*
+source/css/*.css
+Thumbs.db
+# pp/
+build/

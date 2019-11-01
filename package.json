@@ -6,7 +6,9 @@
   "scripts": {
     "editorconfig": "editorconfig-cli",
     "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
-    "test": "npm run editorconfig && npm run stylelint"
+    "test": "npm run editorconfig && npm run stylelint",
+    "start": "gulp start",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -21,9 +23,7 @@
   "devDependencies": {
     "autoprefixer": "^9.7.0",
     "browser-sync": "^2.26.7",
-    "clean-css": "^4.2.1",
     "cssnano": "^4.1.10",
-    "csso": "^4.0.2",
     "del": "^5.1.0",
     "eslint": "^6.6.0",
     "gulp": "^4.0.2",

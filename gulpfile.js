@@ -8,10 +8,8 @@ const gulp = require('gulp'),
   postcss = require('gulp-postcss'),
   cssNano = require('cssnano'),
   server = require('browser-sync').create(),
-  cleancss = require('clean-css'),
-  csso = require('csso'),
   autoprefixer = require('autoprefixer'),
-  processpres = [cssNano];
+  processpres = [autoprefixer, cssNano];
 
 const css = () => gulp.src('source/sass/style.scss')
   .pipe(plumber())
@@ -36,38 +34,29 @@ const copy = () => gulp.src([
 const refresh = (done) => {
   server.reload();
   done();
-}
+};
 
 const clean = () => del('build');
-const watchHtml = () => gulp.watch('source/*.html', copy);
-const watchStyle = () => gulp.watch('source/sass/**/*.{scss,sass}', css);
-const watchScript = () => gulp.watch('source/js/*.*', copy);
-const browserSync = server.init({
-  server: {
-    baseDir: "build/"
-  }
-});
 
 const watch = () => {
-  browserSync;
+  server.init({
+    server: {
+      baseDir: "build/"
+    }
+  });
   gulp.watch('source/*.html', gulp.series(copy, refresh));
   gulp.watch('source/sass/**/*.{scss,sass}', css);
   gulp.watch('source/js/*.*', gulp.series(copy, refresh));
-}
-
-
-
+};
 
 const build = gulp.series(clean, gulp.parallel(css, copy));
-// const watch = gulp.parallel(watchHtml, watchStyle, watchScript);
 const start = gulp.series(build, watch);
 
 gulp.task('css', () => css());
 gulp.task('clean', () => clean());
 gulp.task('copy', () => copy());
-
 gulp.task('watch', watch);
 gulp.task('build', build);
 gulp.task('start', start);
 
-exports.default = start;
+// exports.default = clean;

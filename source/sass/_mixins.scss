@@ -22,7 +22,7 @@
   }
 }
 
-@mixin mobile-wide {
+@mixin wide-mobile {
   @media (max-width: $tablet-width - 1px) {
     @content;
   }

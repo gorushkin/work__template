@@ -10,6 +10,11 @@ const gulp = require('gulp'),
   server = require('browser-sync').create(),
   autoprefixer = require('autoprefixer'),
   gulpZip = require('gulp-zip'),
+  // fs = require('fs'),
+  path = require('path'),
+  name = path.basename(__dirname),
+  zipFolder = 'C:/Users/Alex/Documents/artyom/webdev/залить',
+
   processpres = [autoprefixer, cssNano];
 
 const css = () => gulp.src('source/sass/style.scss')
@@ -50,9 +55,10 @@ const watch = () => {
   gulp.watch('source/js/*.*', gulp.series(copy, refresh));
 };
 
+
 const zip = () => gulp.src('build/**')
-  .pipe(gulpZip('archive.zip'))
-  .pipe(gulp.dest('./source'));
+  .pipe(gulpZip(name + '.zip'))
+  .pipe(gulp.dest(zipFolder));
 
 const build = gulp.series(clean, gulp.parallel(css, copy));
 const start = gulp.series(build, watch);

@@ -9,6 +9,7 @@ const gulp = require('gulp'),
   cssNano = require('cssnano'),
   server = require('browser-sync').create(),
   autoprefixer = require('autoprefixer'),
+  gulpZip = require('gulp-zip'),
   processpres = [autoprefixer, cssNano];
 
 const css = () => gulp.src('source/sass/style.scss')
@@ -49,6 +50,10 @@ const watch = () => {
   gulp.watch('source/js/*.*', gulp.series(copy, refresh));
 };
 
+const zip = () => gulp.src('build/**')
+  .pipe(gulpZip('archive.zip'))
+  .pipe(gulp.dest('./source'));
+
 const build = gulp.series(clean, gulp.parallel(css, copy));
 const start = gulp.series(build, watch);
 
@@ -58,5 +63,6 @@ gulp.task('copy', () => copy());
 gulp.task('watch', watch);
 gulp.task('build', build);
 gulp.task('start', start);
+gulp.task('zip', zip);
 
 // exports.default = clean;

@@ -1,10 +1,3 @@
-// @font-face {
-//   font-family: 'Lemon/Milk Regular';
-//   font-style: normal;
-//   font-weight: normal;
-//   src: local("Lemon/Milk Regular"), url("../fonts/LemonMilk.woff") format("woff"), url("../fonts/LemonMilk.woff2") format("woff2");
-// }
-
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -79,8 +72,8 @@ video {
   display: none;
 }
 
-.clearfix:after {
-  content: '';
+.clearfix::after {
+  content: "";
   display: block;
   clear: both;
 }
@@ -96,14 +89,19 @@ video {
   overflow: hidden;
 }
 
-.form__select-wrapper {
-  background: #fff;
-  width: 35%;
-  margin-left: auto;
-  position: relative;
-  border-radius: 5px;
-  border: 1px solid #bababa;
+/* стилизация элементов формы */
+
+.form__element {
+  width: 100%;
+  background: #ffffff;
+  margin-bottom: 25px;
   border: none;
+  height: 50px;
+
+  &--select-wrapper {
+    margin-left: auto;
+    position: relative;
+  }
 }
 
 .form__arrow {
@@ -114,8 +112,8 @@ video {
   position: absolute;
   right: 0;
 
-  &:before {
-    content: '';
+  &::before {
+    content: "";
     display: block;
     position: absolute;
     width: 0;
@@ -131,24 +129,19 @@ video {
   }
 }
 
-.form__element--select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
+.form__select {
   appearance: none;
   position: relative;
   z-index: 1;
-  background: #ffffff;
-  background: #ffffff;
   white-space: nowrap;
   text-indent: 0.01px;
   background: transparent;
-  text-overflow: '';
-  position: relative;
+  text-overflow: "";
   cursor: pointer;
   color: rgba(0, 0, 0, 0.6);
   width: 100%;
+  height: 100%;
+  padding: 10px;
 
   option {
     background: #ffffff;
@@ -159,7 +152,7 @@ select::-ms-expand {
   display: none;
 }
 
-.form__element--select::-ms-expand {
+.form__select::-ms-expand {
   display: none;
 }
 
@@ -172,7 +165,6 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: $font-first;
-  // background: #000000;
 }
 
 .wrapper {

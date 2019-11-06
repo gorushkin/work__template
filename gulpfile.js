@@ -19,9 +19,9 @@ const gulp = require('gulp'),
 
 const css = () => gulp.src('source/sass/style.scss')
   .pipe(plumber())
+  .pipe(sourcemaps.init())
   .pipe(sass())
   .pipe(postcss(processpres))
-  .pipe(sourcemaps.init())
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest("build/css"))
   .pipe(server.stream());

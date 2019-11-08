@@ -33,11 +33,15 @@
     ];
 
     const createVarList = (list) => {
-      let result = {};
-      list.forEach(element => {
-        result[element] = document.querySelector('.' + element);
-      });
-      return result;
+      return list.reduce((acc, n) => {
+        const element = {
+          [n]: document.querySelector('.' + n)
+        };
+        return {
+          ...acc,
+          ...element
+        };
+      }, {});
     };
 
     const html = '<div class="row row--top"><span class="left"></span><span class="js_dim mid"></span><span class="right"></span></div><div class="row row--mid"><span class="js_min value value--min">320px</span><span class="js_name name">Desktop</span><span class="js_max value value--max">479px</span></div><div class="row row--bot js_control"><span class="conrol">0</span><span class="conrol">50</span><span class="conrol">100</span><span class="conrol js_hide">100</span></div>';

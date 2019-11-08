@@ -12,15 +12,24 @@ const gulp = require('gulp'),
   gulpZip = require('gulp-zip'),
   // fs = require('fs'),
   path = require('path'),
+  imagemin = require("gulp-imagemin"),
+  webp = require("gulp-webp"),
+  imgCompress = require('imagemin-jpeg-recompress'),
   name = path.basename(__dirname),
   zipFolder = 'C:/Users/Alex/Documents/artyom/webdev/залить',
 
-  processpres = [autoprefixer, cssNano];
+  processpres = [
+    autoprefixer,
+    cssNano,
+  ];
 
 const css = () => gulp.src('source/sass/style.scss')
   .pipe(plumber())
   .pipe(sourcemaps.init())
-  .pipe(sass())
+  .pipe(sass({
+    outputStyle: 'expanded',
+    includePaths: [__dirname + '/node_modules']
+  }))
   .pipe(postcss(processpres))
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest("build/css"))
@@ -55,6 +64,27 @@ const watch = () => {
   gulp.watch('source/js/*.*', gulp.series(copy, refresh));
 };
 
+const images = () => gulp.src('source/img — src/**/*.{png,jpg,svg}')
+  .pipe(imagemin([
+    imgCompress({
+      loops: 4,
+      min: 70,
+      max: 80,
+      quality: 'high'
+    }),
+    imagemin.optipng({
+      optimizationLevel: 3
+    }),
+    imagemin.svgo()
+  ]))
+  .pipe(gulp.dest('source/img'));
+
+
+const webpOpt = () => gulp.src('source/img — src/**/*.{png,jpg,svg}')
+  .pipe(webp({
+    quality: 70
+  }))
+  .pipe(gulp.dest("source/img"));
 
 const zip = () => gulp.src('build/**')
   .pipe(gulpZip(name + '.zip'))
@@ -70,5 +100,5 @@ gulp.task('watch', watch);
 gulp.task('build', build);
 gulp.task('start', start);
 gulp.task('zip', zip);
-
-// exports.default = clean;
+gulp.task('images', images);
+gulp.task('webp', webpOpt);

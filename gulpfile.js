@@ -11,6 +11,9 @@ const gulp = require('gulp'),
   autoprefixer = require('autoprefixer'),
   gulpZip = require('gulp-zip'),
   // fs = require('fs'),
+  obfuscator = require('gulp-javascript-obfuscator'),
+  concat = require('gulp-concat'),
+  uglify = require('gulp-uglify-es').default,
   path = require('path'),
   imagemin = require("gulp-imagemin"),
   webp = require("gulp-webp"),
@@ -37,7 +40,7 @@ const css = () => gulp.src('source/sass/style.scss')
 
 const copy = () => gulp.src([
     'source/*.html',
-    'source/js/**',
+    // 'source/js/**',
     'source/img/**',
     'source/fonts/**',
     "source/pp/**"
@@ -90,10 +93,18 @@ const zip = () => gulp.src('build/**')
   .pipe(gulpZip(name + '.zip'))
   .pipe(gulp.dest(zipFolder));
 
-const build = gulp.series(clean, gulp.parallel(css, copy));
+const js = () => gulp.src('source/js/*.js')
+  .pipe(concat('script.js'))
+  // .pipe(uglify())
+  // .pipe(obfuscator())
+  .pipe(gulp.dest('build/js'));
+
+
+const build = gulp.series(clean, gulp.parallel(js, css, copy));
 const start = gulp.series(build, watch);
 
 gulp.task('css', () => css());
+gulp.task('js', () => js());
 gulp.task('clean', () => clean());
 gulp.task('copy', () => copy());
 gulp.task('watch', watch);

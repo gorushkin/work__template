@@ -39,6 +39,7 @@
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^6.1.1",
+    "gulp-include": "^2.4.1",
     "gulp-javascript-obfuscator": "^1.1.6",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",

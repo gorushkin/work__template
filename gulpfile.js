@@ -10,7 +10,7 @@ const gulp = require('gulp'),
   server = require('browser-sync').create(),
   autoprefixer = require('autoprefixer'),
   gulpZip = require('gulp-zip'),
-  // fs = require('fs'),
+  include = require('gulp-include'),
   obfuscator = require('gulp-javascript-obfuscator'),
   concat = require('gulp-concat'),
   uglify = require('gulp-uglify-es').default,
@@ -39,8 +39,6 @@ const css = () => gulp.src('source/sass/style.scss')
   .pipe(server.stream());
 
 const copy = () => gulp.src([
-    'source/*.html',
-    // 'source/js/**',
     'source/img/**',
     'source/fonts/**',
     "source/pp/**"
@@ -93,18 +91,27 @@ const zip = () => gulp.src('build/**')
   .pipe(gulpZip(name + '.zip'))
   .pipe(gulp.dest(zipFolder));
 
-const js = () => gulp.src('source/js/*.js')
-  .pipe(concat('script.js'))
-  // .pipe(uglify())
-  // .pipe(obfuscator())
+const vendorJs = () => gulp.src('source/js/vendor/*.js')
+  .pipe(concat('vendor.js'))
   .pipe(gulp.dest('build/js'));
 
+const modulesJs = () => gulp.src('source/js/modules/*.js')
+  .pipe(concat('main.js'))
+  .pipe(gulp.dest('build/js'));
 
-const build = gulp.series(clean, gulp.parallel(js, css, copy));
+const js = gulp.parallel(vendorJs, modulesJs);
+
+const html = () => gulp.src('source/*.html')
+  .pipe(include())
+  .pipe(gulp.dest('build'));
+
+const build = gulp.series(clean, gulp.parallel(js, css, copy, html));
 const start = gulp.series(build, watch);
 
 gulp.task('css', () => css());
-gulp.task('js', () => js());
+gulp.task('js', js);
+gulp.task('vendorJs', () => vendorJs());
+gulp.task('modulesJs', () => modulesJs());
 gulp.task('clean', () => clean());
 gulp.task('copy', () => copy());
 gulp.task('watch', watch);
@@ -113,3 +120,4 @@ gulp.task('start', start);
 gulp.task('zip', zip);
 gulp.task('images', images);
 gulp.task('webp', webpOpt);
+gulp.task('html', html);

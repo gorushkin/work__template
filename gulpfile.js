@@ -60,9 +60,9 @@ const watch = () => {
       baseDir: "build/"
     }
   });
-  gulp.watch('source/*.html', gulp.series(copy, refresh));
+  gulp.watch('source/*.html', gulp.series(html, refresh));
   gulp.watch('source/sass/**/*.{scss,sass}', css);
-  gulp.watch('source/js/*.*', gulp.series(copy, refresh));
+  gulp.watch('source/js/**/*.*', gulp.series(js, refresh));
 };
 
 const images = () => gulp.src('source/img — src/**/*.{png,jpg,svg}')
@@ -110,8 +110,8 @@ const start = gulp.series(build, watch);
 
 gulp.task('css', () => css());
 gulp.task('js', js);
-gulp.task('vendorJs', () => vendorJs());
-gulp.task('modulesJs', () => modulesJs());
+// gulp.task('vendorJs', () => vendorJs());
+// gulp.task('modulesJs', () => modulesJs());
 gulp.task('clean', () => clean());
 gulp.task('copy', () => copy());
 gulp.task('watch', watch);

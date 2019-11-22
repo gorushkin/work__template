@@ -10,7 +10,7 @@
     "test": "npm run editorconfig && npm run stylelint",
     "start": "gulp start",
     "build": "gulp build",
-    "eslint": "eslint  \"source/js/**.js\""
+    "eslint": "eslint  \"source/js/**/*.js\""
   },
   "repository": {
     "type": "git",
@@ -29,13 +29,7 @@
     "cssnano": "^4.1.10",
     "del": "^5.1.0",
     "eslint": "^6.6.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-google": "^0.14.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
+    "eslint-config-htmlacademy": "^0.5.2",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^6.1.1",

@@ -1,5 +1,31 @@
 "use strict";
 
+const path = {
+  build: {
+    css: "build/css",
+    img: 'source/img',
+    js: 'build/js',
+  },
+  src: {
+    css: 'source/sass/style.scss',
+    img: 'source/img/**',
+    fonts: 'source/fonts/**',
+    imgsrc: 'source/img — src/**/*.{png,jpg,svg}',
+    pp: "source/pp/**",
+    jsModules: 'source/js/modules/*.js',
+    jsVendors: 'source/js/vendor/*.js',
+    html: 'source/*.html',
+  },
+  watch: {
+    html: 'source/*.html',
+    htmlTemplates: 'source/templates/*.html',
+    css: 'source/sass/**/*.{scss,sass}',
+    js: 'source/js/**/*.*',
+  },
+  zipFolder: 'C:/Users/Alex/Documents/artyom/webdev/залить',
+}
+
+
 const gulp = require('gulp'),
   sass = require('gulp-sass'),
   sourcemaps = require('gulp-sourcemaps'),
@@ -14,19 +40,18 @@ const gulp = require('gulp'),
   obfuscator = require('gulp-javascript-obfuscator'),
   concat = require('gulp-concat'),
   uglify = require('gulp-uglify-es').default,
-  path = require('path'),
+  pathNpm = require('path'),
   imagemin = require("gulp-imagemin"),
   webp = require("gulp-webp"),
   imgCompress = require('imagemin-jpeg-recompress'),
-  name = path.basename(__dirname),
-  zipFolder = 'C:/Users/Alex/Documents/artyom/webdev/залить',
+  name = pathNpm.basename(__dirname),
 
   processpres = [
     autoprefixer,
     cssNano,
   ];
 
-const css = () => gulp.src('source/sass/style.scss')
+const css = () => gulp.src(path.src.css)
   .pipe(plumber())
   .pipe(sourcemaps.init())
   .pipe(sass({
@@ -35,13 +60,13 @@ const css = () => gulp.src('source/sass/style.scss')
   }))
   .pipe(postcss(processpres))
   .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest("build/css"))
+  .pipe(gulp.dest(path.build.css))
   .pipe(server.stream());
 
 const copy = () => gulp.src([
-    'source/img/**',
-    'source/fonts/**',
-    "source/pp/**"
+    path.src.img,
+    path.src.fonts,
+    path.src.pp
   ], {
     base: 'source'
   })
@@ -60,13 +85,13 @@ const watch = () => {
       baseDir: "build/"
     }
   });
-  gulp.watch('source/*.html', gulp.series(html, refresh));
-  gulp.watch('source/templates/*.html', gulp.series(html, refresh));
-  gulp.watch('source/sass/**/*.{scss,sass}', css);
-  gulp.watch('source/js/**/*.*', gulp.series(js, refresh));
+  gulp.watch(path.watch.html, gulp.series(html, refresh));
+  gulp.watch(path.watch.htmlTemplates, gulp.series(html, refresh));
+  gulp.watch(path.watch.css, css);
+  gulp.watch(path.watch.js, gulp.series(js, refresh));
 };
 
-const images = () => gulp.src('source/img — src/**/*.{png,jpg,svg}')
+const images = () => gulp.src(path.src.imgsrc)
   .pipe(imagemin([
     imgCompress({
       loops: 4,
@@ -79,29 +104,29 @@ const images = () => gulp.src('source/img — src/**/*.{png,jpg,svg}')
     }),
     imagemin.svgo()
   ]))
-  .pipe(gulp.dest('source/img'));
+  .pipe(gulp.dest(path.build.img));
 
-const webpOpt = () => gulp.src('source/img — src/**/*.{png,jpg,svg}')
+const webpOpt = () => gulp.src(path.src.imgsrc)
   .pipe(webp({
     quality: 70
   }))
-  .pipe(gulp.dest("source/img"));
+  .pipe(gulp.dest(path.build.img));
 
 const zip = () => gulp.src('build/**')
   .pipe(gulpZip(name + '.zip'))
-  .pipe(gulp.dest(zipFolder));
+  .pipe(gulp.dest(path.zipFolder));
 
-const vendorJs = () => gulp.src('source/js/vendor/*.js')
+const vendorJs = () => gulp.src(path.src.jsVendors)
   .pipe(concat('vendor.js'))
-  .pipe(gulp.dest('build/js'));
+  .pipe(gulp.dest(path.build.js));
 
-const modulesJs = () => gulp.src('source/js/modules/*.js')
+const modulesJs = () => gulp.src(path.src.jsModules)
   .pipe(concat('main.js'))
-  .pipe(gulp.dest('build/js'));
+  .pipe(gulp.dest(path.build.js));
 
 const js = gulp.parallel(vendorJs, modulesJs);
 
-const html = () => gulp.src('source/*.html')
+const html = () => gulp.src(path.src.html)
   .pipe(include())
   .pipe(gulp.dest('build'));
 

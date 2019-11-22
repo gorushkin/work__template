@@ -70,7 +70,7 @@
       varList.js_min.textContent = minRes;
       varList.js_max.textContent = maxRes;
       varList.js_dim.textContent = screenWidth;
-    }
+    };
 
     const findName = (array) => {
       const size = document.documentElement.clientWidth

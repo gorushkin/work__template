@@ -1,37 +1,37 @@
 * {
-  background-color: rgba(255, 0, 0, .2);
+  background-color: rgba(255, 0, 0, 0.2);
 }
 
 * * {
-  background-color: rgba(0, 255, 0, .2);
+  background-color: rgba(0, 255, 0, 0.2);
 }
 
 * * * {
-  background-color: rgba(0, 0, 255, .2);
+  background-color: rgba(0, 0, 255, 0.2);
 }
 
 * * * * {
-  background-color: rgba(255, 0, 255, .2);
+  background-color: rgba(255, 0, 255, 0.2);
 }
 
 * * * * * {
-  background-color: rgba(0, 255, 255, .2);
+  background-color: rgba(0, 255, 255, 0.2);
 }
 
 * * * * * * {
-  background-color: rgba(255, 255, 0, .2);
+  background-color: rgba(255, 255, 0, 0.2);
 }
 
 * * * * * * * {
-  background-color: rgba(255, 0, 0, .2);
+  background-color: rgba(255, 0, 0, 0.2);
 }
 
 * * * * * * * * {
-  background-color: rgba(0, 255, 0, .2);
+  background-color: rgba(0, 255, 0, 0.2);
 }
 
 * * * * * * * * * {
-  background-color: rgba(0, 0, 255, .2);
+  background-color: rgba(0, 0, 255, 0.2);
 }
 
 
@@ -185,7 +185,6 @@ select::-ms-expand {
 .form__select::-ms-expand {
   display: none;
 }
-
 
 body {
   min-width: 320px;
